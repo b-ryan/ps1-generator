@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html ng-app="ps1">
+  <head>
+    <title>PS1 Generator</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="bootstrap/bootstrap.css" rel="stylesheet" media="screen">
+    <link href="style.css" rel="stylesheet" media="screen">
+    <script src="jquery/jquery.js"></script>
+    <script src="jquery/jquery-ui.js"></script>
+    <script src="bootstrap/bootstrap.js"></script>
+    <script src="angular/angular.js"></script>
+    <script src="angular/angular-ui.js"></script>
+    <script src="app.js"></script>
+  </head>
+  <body ng-controller="OptionsCtrl">
+    <div class="result well">
+      Components:
+      <div ui-sortable="{tolerance:'pointer'}" ng-model="ps1">
+        <div class="result-item" ng-repeat="part in ps1">
+          <pre>{{part.example}}</pre>
+          <a href="" ng-click="remove($index)" show-on-hover="parent">
+            <i class="icon-remove"></i>
+          </a>
+        </div>
+      </div>
+      <hr>
+      <hr>
+      Copy this into your bashrc:
+      <pre class="result-ps1">{{ps1 | concat:'code'}}</pre>
+    </div>
+
+    <div class="options">
+      <table class="table">
+        <thead>
+          <tr>
+            <td></td>
+            <td>Escape Sequence</td>
+            <td>Description</td>
+            <td>Example</td>
+            <td><input type="text" ng-model="search.$" capture-keypress></td>
+          </tr>
+        </thead>
+        <tbody navigatable ng-model="options">
+          <tr ng-repeat="option in options | filter:search">
+            <td><a href="" ng-click="add(option)">
+              <i class="icon-plus"></i></a>
+            </td>
+            <td><pre class="ps1-code">{{option.code}}</pre></td>
+            <td>{{option.description}}</td>
+            <td>{{option.example}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,38 @@
+.result-container {
+  height: 75px;
+}
+
+.result-item {
+  float: left;
+}
+
+.result-item pre {
+  margin: 0;
+}
+
+.result-item pre:hover {
+  background-color: #ddd;
+  cursor: move;
+}
+
+.result-item a {
+  float: right;
+}
+
+.result-ps1 {
+  border: none;
+  background-color: white;
+}
+
+.ps1-code {
+  margin: 0;
+  padding-left: 6px;
+  padding-right: 6px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+  width: 20px;
+  height: 8px;
+}
